@@ -1,24 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+
+import styles from './App.module.css';
+import { EditorProvider } from './context/context';
+import CodeBar from './components/codeBar/CodeBar';
+import Header from './components/Header/Header';
+import Preview from './components/Preview/Preview';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <EditorProvider>
+      <CodeBar/>
+
+      <div className={styles.main}>
+        <Header/>
+        <Preview/>
+      </div>
+    </EditorProvider>
   );
 }
 
